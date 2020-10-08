@@ -35,7 +35,7 @@ let questions = [
     answer: 1
   }
 
-  {
+  { 
     question:"Among the following, which term is related to memory?"
     choice1:"WAM"
     choice2:"MAN"
@@ -45,4 +45,23 @@ let questions = [
   }
 ]
 
- 
+//constants
+const CORRECT_BONUS = 20;
+const MAX_QUESTIONS = 3;
+
+startGame = () => {
+  questionCounter = 0;
+  availableQuestions = [...questions];
+  console.log(availableQuestions);
+  getNewQuestion();
+
+};
+
+getNewQuestion = () => {
+  questionCounter++;
+  const questionindex = Math.floor(Math.random() * availableQuestions.length);
+  currentQuestion = availableQuestions[questionindex];
+  question.innerText = currentQuestion.question;
+};
+
+startGame();
